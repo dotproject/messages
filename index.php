@@ -11,19 +11,24 @@
 	global $AppUI;
 	
 	require_once($AppUI->getModuleClass("tasks"));
-/*	$sql = "select user_id, concat_ws(' ', contact_first_name, contact_last_name)
-			from users as u left join permissions as p on u.user_id = p.permission_user,
-				contacts as c
-			where !isnull(p.permission_user)
-				and u.user_contact = c.contact_id
-			group by user_id
-			order by contact_first_name";
-	$user_hash = db_loadHashList($sql);*/
-    $user_hash = array();
-    foreach(getUsersArray() as $user_id => $user_data){
-        $user_name = trim($user_data["contact_first_name"]." ".$user_data["contact_last_name"]);
-        $user_hash[$user_id] = empty($user_name) ? $user_data["user_username"] : $user_name;
-    }
+	
+	if(!function_exists("getUsersArray")) {
+	    // Compatibility with dP 1.x
+    	$sql = "select user_id, concat_ws(' ', contact_first_name, contact_last_name)
+    			from users as u left join permissions as p on u.user_id = p.permission_user,
+    				contacts as c
+    			where !isnull(p.permission_user)
+    				and u.user_contact = c.contact_id
+    			group by user_id
+    			order by contact_first_name";
+    	$user_hash = db_loadHashList($sql);
+	} else {
+        $user_hash = array();
+        foreach(getUsersArray() as $user_id => $user_data){
+            $user_name = trim($user_data["contact_first_name"]." ".$user_data["contact_last_name"]);
+            $user_hash[$user_id] = empty($user_name) ? $user_data["user_username"] : $user_name;
+        }
+	}
 	
 	// Let's start showing off the information
 	$titleBlock = new CTitleBlock( 'Internal messages', 'messages.png', $m, "$m.$a" );

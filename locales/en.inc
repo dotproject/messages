@@ -1,7 +1,7 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"No subject",
+"Internal messages",
 "Already read?",
 "Author",
 "Body",
@@ -10,12 +10,15 @@
 "Delete",
 "Incoming messages",
 "Internal message",
+"Mark as read",
 "Message",
 "No messages under this clasification",
+"No subject",
 "Notify by email",
 "Quick Recipient",
 "Recipient",
 "Recipients",
+"Reply",
 "Send",
 "Sent messages",
 "Title",
