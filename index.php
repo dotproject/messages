@@ -173,7 +173,7 @@
 			break;
 	}
 	
-	$tabBox = new CTabBox("?m=messages", "{$AppUI->cfg['root_dir']}/modules/messages/", $message_tab);
+	$tabBox = new CTabBox("?m=messages", dPgetConfig('root_dir')."/modules/messages/", $message_tab);
 	$tabBox->add("vw_messages", "Incoming messages");
 	$tabBox->add("compose_message", "Compose message");
 	$tabBox->add("vw_messages", "Sent messages");
