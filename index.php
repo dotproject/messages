@@ -50,7 +50,34 @@
 			
 			$sql = "insert into user_tasks (task_id, user_id) values ('$new_message->task_id','".$_POST["recipient_user_id"]."')";
 			db_exec($sql);
-					
+
+			$recipient_email = db_loadResult("select user_email from users where user_id = '".$_POST["recipient_user_id"]."'");
+			
+			if(dPgetParam($_POST, "send_email", "") != "" && $recipient_email != ""){
+        		$mail = new Mail();
+        		$mail->Subject($AppUI->getConfig("company_name")." - ".$AppUI->_("Internal message"));
+        		
+        		$body = $AppUI->getConfig("company_name")." - ".$AppUI->_("Internal message");
+        		$body .= "\n\n";
+        		$body .= $new_message->task_name."\n";
+        		$body .= $new_message->task_description;
+        		$body .= "\n-----";
+        		
+        		$mail->Body($body);
+        		$mail->From ( '"' . $AppUI->user_first_name . " " . $AppUI->user_last_name 
+        			. '" <' . $AppUI->user_email . '>'
+        		);
+        		
+        		$mail->To($recipient_email);
+        		if ($mail->ValidEmail($recipient_email)) {
+        		  $mail->send();
+        		}
+        		
+        		$AppUI->setState("send_email_checked", "checked");
+			} else {
+			    $AppUI->setState("send_email_checked", "");
+			}
+			
 			$AppUI->setMsg("Message sent succesfully");
 		} else {
 			$AppUI->setMsg("Message was not sent [$error_message]", UI_MSG_ERROR);
@@ -95,15 +122,17 @@
 					}
 					break;
 				case "delete":
-					if($view_message->task_owner == $AppUI->user_id){
+					if($view_message->task_owner == $AppUI->user_id || $user_present_in_recipients){
 						$view_message->delete();
 						$unset_view_message = true;
 					}
+					break;
 				case "convert_to_task":
 					if($user_present_in_recipients){
 						$view_message->task_project = $_POST["project_id"];
 						$view_message->task_status  = '0';
 					}
+					break;
 			}
 			
 			$view_message->store();

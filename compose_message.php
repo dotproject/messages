@@ -70,7 +70,7 @@
 					<input type='hidden' name="task_project" value="0" />
 					<input type='hidden' name="task_id" value="0" />
 					<input type='checkbox' name='send_email' <?php echo $AppUI->getState("send_email_checked"); ?> />
-					<?php echo $AppUI->_("Send also through email"); ?>
+					<?php echo $AppUI->_("Notify by email"); ?>
 					<input type='submit' class='button' value='<?php echo $AppUI->_("Send"); ?>' />
 				</td>
 			</tr>
