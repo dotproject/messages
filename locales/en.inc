@@ -1,12 +1,13 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-"Delete",
+"No subject",
 "Already read?",
 "Author",
 "Body",
 "Compose message",
 "Converto to task within the following project",
+"Delete",
 "Incoming messages",
 "Internal message",
 "Message",

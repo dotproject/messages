@@ -61,7 +61,8 @@
 						}
 						$m_row .= "</td>"; // Priority icons
 						$m_row .= "<td>".$message->task_start_date."</td>";
-						$m_row .= "<td> <a href='index.php?m=messages&message_id=".$message->task_id."'>".$message->task_name."</a></td>";
+						$task_name = $message->task_name != "" ? $message->task_name : $AppUI->_("No subject");
+						$m_row .= "<td> <a href='index.php?m=messages&message_id=".$message->task_id."'>$task_name</a></td>";
 						
 						if($show_sent_messages){
 							$m_row .= "<td>".$AppUI->_($message->task_status == -1 ? "Yes" : "No")."</td>";

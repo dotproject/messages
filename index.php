@@ -179,4 +179,5 @@
 	$tabBox->add("vw_messages", "Sent messages");
 	$tabBox->add("vw_messages", "Viewed messages");
 	$tabBox->show();
+	
 ?>

@@ -11,6 +11,7 @@
 "Internal message"=>"Mensaje interno",
 "Message"=>"Mensaje",
 "No messages under this clasification"=>"No hay mensajes dentro de esta clasificación",
+"No subject"=>"Sin tema",
 "Notify by email"=>"Notificar por correo electrónico",
 "Quick Recipient"=>"Selección rápida",
 "Recipient"=>"Destinatario",
