@@ -51,7 +51,11 @@
 			$sql = "insert into user_tasks (task_id, user_id) values ('$new_message->task_id','".$_POST["recipient_user_id"]."')";
 			db_exec($sql);
 
-			$recipient_email = db_loadResult("select user_email from users where user_id = '".$_POST["recipient_user_id"]."'");
+			$recipient_email = db_loadResult("select c.contact_email 
+			                                  from contacts as c,
+			                                       users as u
+			                                  where u.user_contact = c.contact_id
+			                                        and u.user_id = '".$_POST["recipient_user_id"]."'");
 			
 			if(dPgetParam($_POST, "send_email", "") != "" && $recipient_email != ""){
         		$mail = new Mail();
