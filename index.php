@@ -55,9 +55,9 @@
 			
 			if(dPgetParam($_POST, "send_email", "") != "" && $recipient_email != ""){
         		$mail = new Mail();
-        		$mail->Subject($AppUI->getConfig("company_name")." - ".$AppUI->_("Internal message"));
+        		$mail->Subject(dPgetConfig("company_name")." - ".$AppUI->_("Internal message"));
         		
-        		$body = $AppUI->getConfig("company_name")." - ".$AppUI->_("Internal message");
+        		$body = dPgetConfig("company_name")." - ".$AppUI->_("Internal message");
         		$body .= "\n\n";
         		$body .= $new_message->task_name."\n";
         		$body .= $new_message->task_description;
