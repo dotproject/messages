@@ -7,17 +7,17 @@
 	define("READ_MESSAGES_TAB", 3);
 	define("SENT_MESSAGES_TAB", 2);
 	define("COMPOSE_MESSAGE_TAB", 1);
-	
 	error_reporting(E_ALL);
 	global $AppUI;
 	
 	require_once($AppUI->getModuleClass("tasks"));
-
-	$sql = "select user_id, concat_ws(' ', user_first_name, user_last_name)
-			from users as u left join permissions as p on u.user_id = p.permission_user
+	$sql = "select user_id, concat_ws(' ', contact_first_name, contact_last_name)
+			from users as u left join permissions as p on u.user_id = p.permission_user,
+				contacts as c
 			where !isnull(p.permission_user)
+				and u.user_contact = c.contact_id
 			group by user_id
-			order by user_first_name";
+			order by contact_first_name";
 	$user_hash = db_loadHashList($sql);
 	
 	// Let's start showing off the information
