@@ -1,0 +1,21 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Already read?"=>"¿Ya leido?",
+"Author"=>"Autor",
+"Body"=>"Contenido",
+"Compose message"=>"Escribir mensaje",
+"Converto to task within the following project"=>"Convertir a tarea dentro del siguiente proyecto",
+"Delete"=>"Borrar",
+"Incoming messages"=>"Mensajes recibidos",
+"Internal message"=>"Mensaje interno",
+"Message"=>"Mensaje",
+"No messages under this clasification"=>"No hay mensajes dentro de esta clasificación",
+"Notify by email"=>"Notificar por correo electrónico",
+"Quick Recipient"=>"Selección rápida",
+"Recipient"=>"Destinatario",
+"Recipients"=>"Destinatarios",
+"Send"=>"Enviar",
+"Sent messages"=>"Mensajes enviados",
+"Title"=>"Título",
+"Viewed messages"=>"Mensajes vistos",

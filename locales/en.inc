@@ -1,0 +1,21 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+"Delete",
+"Already read?",
+"Author",
+"Body",
+"Compose message",
+"Converto to task within the following project",
+"Incoming messages",
+"Internal message",
+"Message",
+"No messages under this clasification",
+"Notify by email",
+"Quick Recipient",
+"Recipient",
+"Recipients",
+"Send",
+"Sent messages",
+"Title",
+"Viewed messages",
